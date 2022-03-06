@@ -1,7 +1,7 @@
 const express = require('express');
 
-// const categoryRouter = require('./category');
-// const postRouter = require('./post');
+const categoryRouter = require('./category');
+const wodRouter = require('./wod');
 const { apiController } = require('../../controllers/api');
 
 const { ApiError } = require('../../helpers/errorHandler');
@@ -18,8 +18,8 @@ router.use((_, res, next) => {
 router.all('/', apiController.home);
 
 // On préfixe les routers de l'API
-// router.use('/categories', categoryRouter);
-// router.use('/posts', postRouter);
+router.use('/categories', categoryRouter);
+router.use('/wod', wodRouter);
 
 router.use(() => {
     throw new ApiError('API Route not found', { statusCode: 404 });

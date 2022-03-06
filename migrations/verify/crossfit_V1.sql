@@ -18,6 +18,20 @@ WHERE
 SELECT
     *
 FROM
+    "wod"
+WHERE
+    false;
+
+SELECT
+    *
+FROM
+    "training"
+WHERE
+    false;
+
+SELECT
+    *
+FROM
     "box"
 WHERE
     false;

@@ -1,4 +1,9 @@
 CATEGORY: code_category, name
 has, 0N CATEGORY, 11 MOVEMENT
 MOVEMENT: code_movement, name, description, image, url
-BOX: code_box, name, location, info
+
+WOD: code_wod, title
+got, 0N WOD, 11 TRAINING
+TRAINING: code_training, mobility, warm-up, skills, workout)
+
+BOX: code_box, name, email, phone_number, zip_code, city
