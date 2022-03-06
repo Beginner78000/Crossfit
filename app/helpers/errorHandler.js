@@ -4,7 +4,7 @@
  * en cas de passage d'erreur à la function next()
  */
 const logger = require('./logger');
-const ApiError = require('../errors/apiError');
+const ApiError = require('../errors/apiErrors');
 const WebsiteError = require('../errors/websiteError');
 
 /**
@@ -14,7 +14,7 @@ const WebsiteError = require('../errors/websiteError');
  */
 const errorHandler = (err, res) => {
     let { message } = err;
-    let statusCode = err.infos?.statusCode;
+    let statusCode = err.infos.statusCode;
 
     if (!statusCode || Number.isNaN(Number(statusCode))) {
         statusCode = 500;

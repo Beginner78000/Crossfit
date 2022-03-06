@@ -8,7 +8,7 @@ const app = express();
 require('./helpers/apiDocs')(app);
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 // On active le middleware pour parser le payload JSON
 app.use(express.json());
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // On lève la restriction CORS pour nos amis React
 const corsOptions = {
-    origin: process.env.CORS_DOMAINS ?? '*',
+    origin: '*',
 };
 app.use(cors(corsOptions));
 

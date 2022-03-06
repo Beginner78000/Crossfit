@@ -1,6 +1,7 @@
 const express = require('express');
 
 const categoryRouter = require('./category');
+const movementRouter = require('./movement');
 const wodRouter = require('./wod');
 const { apiController } = require('../../controllers/api');
 
@@ -19,6 +20,7 @@ router.all('/', apiController.home);
 
 // On préfixe les routers de l'API
 router.use('/categories', categoryRouter);
+router.use('/movement', movementRouter);
 router.use('/wod', wodRouter);
 
 router.use(() => {
