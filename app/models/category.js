@@ -90,43 +90,4 @@ module.exports = {
         // On cast le truthy/falsy en vrai booléen
         return !!result.rowCount;
     },
-
-    /**
-     * Vérifie si une catégorie existe déjà avec le titre ou le slug
-     * @param {object} inputData - Les données fourni par le client
-     * @param {number} categoryId - L'identifiant de la catégorie (optionnel)
-     * @returns {(Category|undefined)} - La catégorie existante
-     * ou undefined si aucune categorie avec ces données
-     */
-    async isUnique(inputData, categoryId) {
-        const fields = [];
-        const values = [];
-        // On récupère la liste des infos envoyés
-        Object.entries(inputData).forEach(([key, value], index) => {
-            // On ne garde que les infos qui sont censées être unique
-            if (['label'].includes(key)) {
-                // On génère le filtre avec ces infos
-                fields.push(`"${key}" = $${index + 1}`);
-                values.push(value);
-            }
-        });
-
-        const preparedQuery = {
-            text: `SELECT * FROM category WHERE (${fields.join(' OR ')})`,
-            values,
-        };
-
-        // Si l'id est fourni on exclu l'enregistrement qui lui correspond
-        if (categoryId) {
-            preparedQuery.text += ` AND id <> $${values.length + 1}`;
-            preparedQuery.values.push(categoryId);
-        }
-        const result = await client.query(preparedQuery);
-
-        if (result.rowCount === 0) {
-            return null;
-        }
-
-        return result.rows[0];
-    },
 };

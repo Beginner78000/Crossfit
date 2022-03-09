@@ -2,9 +2,8 @@
 BEGIN;
 
 DROP TABLE "movement",
-"category",
-"wod",
 "training",
-"box";
+"box",
+"category";
 
 COMMIT;

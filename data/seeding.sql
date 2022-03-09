@@ -4,7 +4,9 @@ INSERT INTO
     "category" ("id", "label")
 VALUES
     (1, 'Haltérophilie'),
-    (2, 'Gymnastique');
+    (2, 'Gymnastique'),
+    (3, 'WOD'),
+    (4, 'BOX');
 
 INSERT INTO
     "movement" (
@@ -66,36 +68,33 @@ VALUES
     );
 
 INSERT INTO
-    "wod" ("id", "title")
-VALUES
-    (1, 'WOD n°1'),
-    (2, 'WOD n°2');
-
-INSERT INTO
     "training" (
         "id",
+        "title",
         "mobility",
         "warm_up",
         "skills",
         "workout",
-        "wod_id"
+        "category_id"
     )
 VALUES
     (
         1,
+        'WOD n°1',
         'Back-roll, prayer on roller, T-hips opener full rotation, squat opener',
         '5 sets : 45 secondes easy ergo, 6 elbow rotation, 4 strict press, 4 broad jump',
         '5 sets : 1 power clean, 1 squat clean, 2 front squat, 3 push press (load progression)',
         '7-5-3 rounds : 3 push press, 3 front squat, 3 box jump, 750m run',
-        1
+        3
     ),
     (
         2,
+        'WOD n°2',
         'Back-roll, calf-roll, hamstring-roll, rollover to V-sit, Samson stretch, PNF shoulder ext. rot.',
         '4 sets : 8 kong squat prisoners, 4 pike push-up, 25 simple unders',
         '4 sets : minute 1: 15 double under, minute 2: 8 double dumbbell deadlift, 5 shoulder to overhead (load progression)',
         '5 rounds : minute 1: 20 double DB deadlift, minute 2: 50 DU ou 80 SU, minute 3: max reps double DB shoulder to OH, minute 4: rest',
-        2
+        3
     );
 
 INSERT INTO
@@ -104,15 +103,71 @@ INSERT INTO
         "name",
         "email",
         "phone_number",
+        "website",
         "zip_code",
-        "city"
+        "city",
+        "category_id"
     )
 VALUES
-    (1, 'WildBear', 'hello@wildbearcrossfit.com', '+33 2.56.63.17.34', '56000', 'Vannes'),
-    (2, 'Andarta', 'contact@crossfit-andarta.bzh', '+33 6.70.83.62.82', '56400', 'Auray'),
-    (3, 'Darioritum', NULL, '+33 7.70.12.81.61', '56000', 'Vannes'),
-    (4, 'CrossFit Orgeval', 'contact@crossfitorgeval.fr', '+33 1.85.00.80.34', '78630', 'Orgeval'),
-    (5, 'CrossFit Factory', 'crossfitfactory92@gmail.com', '+33 1.47.31.62.42', '92800', 'Puteaux'),
-    (7, 'Red Legion', 'cfredlegion@gmail.com', '+33 6.66.85.54.01', '95280', 'Jouy-le-Moutier');
+    (
+        1,
+        'WildBear',
+        'hello@wildbearcrossfit.com',
+        '+33 2.56.63.17.34',
+        'https://wildbearcrossfit.com/',
+        '56000',
+        'Vannes',
+		4
+    ),
+    (
+        2,
+        'Andarta',
+        'contact@crossfit-andarta.bzh',
+        '+33 6.70.83.62.82',
+        'https://www.crossfit-andarta.bzh/',
+        '56400',
+        'Auray',
+		4
+    ),
+    (
+        3,
+        'Darioritum',
+        NULL,
+        '+33 7.70.12.81.61',
+        'https://www.darioritum-crossfit-danse.fr/',
+        '56000',
+        'Vannes',
+		4
+    ),
+    (
+        4,
+        'CrossFit Orgeval',
+        'contact@crossfitorgeval.fr',
+        '+33 1.85.00.80.34',
+        'https://crossfitorgeval.fr/',
+        '78630',
+        'Orgeval',
+		4
+    ),
+    (
+        5,
+        'CrossFit Factory',
+        'crossfitfactory92@gmail.com',
+        '+33 1.47.31.62.42',
+        'http://www.crossfitfactory.fr/',
+        '92800',
+        'Puteaux',
+		4
+    ),
+    (
+        6,
+        'Red Legion',
+        'cfredlegion@gmail.com',
+        '+33 6.66.85.54.01',
+        'https://redlegion.fr/',
+        '95280',
+        'Jouy-le-Moutier',
+		4
+    );
 
 COMMIT;

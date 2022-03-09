@@ -1,5 +1,6 @@
 const categoryController = require('./category');
 const movementController = require('./movement');
+const wodController = require('./wod');
 
 const apiController = {
     /**
@@ -17,4 +18,4 @@ const apiController = {
     },
 };
 
-module.exports = { apiController, categoryController, movementController };
+module.exports = { apiController, categoryController, movementController, wodController };

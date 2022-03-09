@@ -1,5 +1,4 @@
-CATEGORY ( id, name )
 MOVEMENT ( id, name, description, image, url, category_id )
-WOD ( id, title )
-TRAINING ( id, mobility, warm-up, skills, workout, wod_id )
-BOX ( id, name, email, phone_number, zip_code, city )
+CATEGORY ( id, label )
+TRAINING ( id, title, mobility, warm-up, skills, workout, category_id )
+BOX ( id, name, email, phone_number, website, zip_code, city, category_id )

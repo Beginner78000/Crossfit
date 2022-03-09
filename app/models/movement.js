@@ -109,45 +109,6 @@ module.exports = {
     },
 
     /**
-     * Vérifie si un mouvement existe déjà avec le name
-     * @param {object} inputData - Les données fourni par le client
-     * @param {number} movementId - L'identifiant du movement (optionnel)
-     * @returns {(Movement|undefined)} - Le Movement existant
-     * ou undefined si aucun Movement avec ces données
-     */
-    async isUnique(inputData, movementId) {
-        const fields = [];
-        const values = [];
-        // On récupère la liste des infos envoyés
-        Object.entries(inputData).forEach(([key, value], index) => {
-            // On ne garde que les infos qui sont censées être unique
-            if (['name'].includes(key)) {
-                // On génère le filtre avec ces infos
-                fields.push(`"${key}" = $${index + 1}`);
-                values.push(value);
-            }
-        });
-
-        const preparedQuery = {
-            text: `SELECT * FROM movement_with_category WHERE (${fields.join(' OR ')})`,
-            values,
-        };
-
-        // Si l'id est fourni on exclu l'enregistrement qui lui correspond
-        if (movementId) {
-            preparedQuery.text += ` AND id <> $${values.length + 1}`;
-            preparedQuery.values.push(movementId);
-        }
-        const result = await client.query(preparedQuery);
-
-        if (result.rowCount === 0) {
-            return null;
-        }
-
-        return result.rows[0];
-    },
-
-    /**
      * Récupère par l'id de category
      * @param {number} categoryId - L'id de la Category
      * @returns {Movement[]} - La liste des Movements marqué avec cette Category dans la BDD

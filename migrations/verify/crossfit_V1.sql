@@ -18,13 +18,6 @@ WHERE
 SELECT
     *
 FROM
-    "wod"
-WHERE
-    false;
-
-SELECT
-    *
-FROM
     "training"
 WHERE
     false;

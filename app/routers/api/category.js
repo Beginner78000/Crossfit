@@ -4,7 +4,7 @@ const validate = require('../../validation/validator');
 const createSchema = require('../../validation/schemas/categoryCreateSchema');
 const updateSchema = require('../../validation/schemas/categoryUpdateSchema');
 
-const { wodController: controller } = require('../../controllers/api');
+const { categoryController: controller } = require('../../controllers/api');
 const controllerHandler = require('../../helpers/controllerHandler');
 
 const router = express.Router();

@@ -65,19 +65,6 @@ module.exports = {
             throw new ApiError('This category does not exists', { statusCode: 404 });
         }
 
-        if (req.body.label) {
-            const existingCategory = await categoryDataMapper.isUnique(req.body, req.params.id);
-            if (existingCategory) {
-                let field;
-                if (existingCategory.label === req.body.label) {
-                    field = 'label';
-                }
-                throw new ApiError(`Other category already exists with this ${field}`, {
-                    statusCode: 400,
-                });
-            }
-        }
-
         const savedCategory = await categoryDataMapper.update(req.params.id, req.body);
         return res.json(savedCategory);
     },

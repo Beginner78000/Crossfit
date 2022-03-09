@@ -51,7 +51,7 @@ module.exports = {
      * @returns {string} Route API JSON response
      */
     async create(req, res) {
-        const movement = await movementDataMapper.isUnique(req.body);
+        const movement = await movementDataMapper.findByPk(req.params.id);
         if (movement) {
             let field;
             if (movement.name === req.body.name) {
@@ -75,19 +75,6 @@ module.exports = {
         const movement = await movementDataMapper.findByPk(req.params.id);
         if (!movement) {
             throw new ApiError('This movement does not exists', { statusCode: 404 });
-        }
-
-        if (req.body.name) {
-            const existingMovement = await movementDataMapper.isUnique(req.body, req.params.id);
-            if (existingMovement) {
-                let field;
-                if (existingMovement.name === req.body.name) {
-                    field = 'name';
-                }
-                throw new ApiError(`Other movement already exists with this ${field}`, {
-                    statusCode: 400,
-                });
-            }
         }
 
         const savedMovement = await movementDataMapper.update(req.params.id, req.body);
