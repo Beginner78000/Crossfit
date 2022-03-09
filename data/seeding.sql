@@ -108,12 +108,11 @@ INSERT INTO
         "city"
     )
 VALUES
-    (1, "WildBear", "Vannes"),
-    (2, "Andarta", "Auray"),
-    (3, "Darioritum", "Vannes"),
-    (4, "CrossFit Orgeval", "Orgeval"),
-    (5, "CrossFit Factory", "Puteaux"),
-    (6, "CrossFit 3.91", "Igny"),
-    (7, "Red Legion", "Jouy-le-Moutier");
+    (1, 'WildBear', 'hello@wildbearcrossfit.com', '+33 2.56.63.17.34', '56000', 'Vannes'),
+    (2, 'Andarta', 'contact@crossfit-andarta.bzh', '+33 6.70.83.62.82', '56400', 'Auray'),
+    (3, 'Darioritum', NULL, '+33 7.70.12.81.61', '56000', 'Vannes'),
+    (4, 'CrossFit Orgeval', 'contact@crossfitorgeval.fr', '+33 1.85.00.80.34', '78630', 'Orgeval'),
+    (5, 'CrossFit Factory', 'crossfitfactory92@gmail.com', '+33 1.47.31.62.42', '92800', 'Puteaux'),
+    (7, 'Red Legion', 'cfredlegion@gmail.com', '+33 6.66.85.54.01', '95280', 'Jouy-le-Moutier');
 
 COMMIT;

@@ -22,7 +22,7 @@ module.exports = {
     },
 
     /**
-     * Récupère par sont id
+     * Récupère par son id
      * @param {number} categoryId - L'id de la categorie souhaité
      * @returns {(Category|undefined)} -
      * La categorie souhaité ou undefined si aucune categorie à cet id

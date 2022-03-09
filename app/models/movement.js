@@ -121,7 +121,7 @@ module.exports = {
         // On récupère la liste des infos envoyés
         Object.entries(inputData).forEach(([key, value], index) => {
             // On ne garde que les infos qui sont censées être unique
-            if (['name', 'description'].includes(key)) {
+            if (['name'].includes(key)) {
                 // On génère le filtre avec ces infos
                 fields.push(`"${key}" = $${index + 1}`);
                 values.push(value);

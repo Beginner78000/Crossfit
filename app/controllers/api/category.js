@@ -22,13 +22,13 @@ module.exports = {
      * @returns {string} Route API JSON response
      */
     async getOne(req, res) {
-        const post = await categoryDataMapper.findByPk(req.params.id);
+        const category = await categoryDataMapper.findByPk(req.params.id);
 
-        if (!post) {
+        if (!category) {
             throw new ApiError('Category not found', { statusCode: 404 });
         }
 
-        return res.json(post);
+        return res.json(category);
     },
 
     /**
@@ -39,19 +39,17 @@ module.exports = {
      * @returns {string} Route API JSON response
      */
     async create(req, res) {
-        const post = await categoryDataMapper.isUnique(req.body);
-        if (post) {
+        const category = await categoryDataMapper.findByPk(req.params.id);
+        if (category) {
             let field;
-            if (post.label === req.body.label) {
+            if (category.label === req.body.label) {
                 field = 'label';
-            } else {
-                field = 'slug';
             }
             throw new ApiError(`Category already exists with this ${field}`, { statusCode: 400 });
         }
 
-        const savedPost = await categoryDataMapper.insert(req.body);
-        return res.json(savedPost);
+        const savedCategory = await categoryDataMapper.insert(req.body);
+        return res.json(savedCategory);
     },
 
     /**
@@ -73,8 +71,6 @@ module.exports = {
                 let field;
                 if (existingCategory.label === req.body.label) {
                     field = 'label';
-                } else {
-                    field = 'slug';
                 }
                 throw new ApiError(`Other category already exists with this ${field}`, {
                     statusCode: 400,
@@ -82,8 +78,8 @@ module.exports = {
             }
         }
 
-        const savedPost = await categoryDataMapper.update(req.params.id, req.body);
-        return res.json(savedPost);
+        const savedCategory = await categoryDataMapper.update(req.params.id, req.body);
+        return res.json(savedCategory);
     },
 
     /**

@@ -39,8 +39,8 @@ module.exports = {
      * @returns {string} Route API JSON response
      */
     async getByCategoryId(req, res) {
-        const movements = await movementDataMapper.findByCategoryId(req.params.id);
-        return res.json(movements);
+        const categoryMovements = await movementDataMapper.findByCategoryId(req.params.id);
+        return res.json(categoryMovements);
     },
 
     /**
@@ -56,8 +56,6 @@ module.exports = {
             let field;
             if (movement.name === req.body.name) {
                 field = 'name';
-            } else {
-                field = 'description';
             }
             throw new ApiError(`Movement already exists with this ${field}`, { statusCode: 400 });
         }
@@ -76,17 +74,15 @@ module.exports = {
     async update(req, res) {
         const movement = await movementDataMapper.findByPk(req.params.id);
         if (!movement) {
-            throw new ApiError('This post does not exists', { statusCode: 404 });
+            throw new ApiError('This movement does not exists', { statusCode: 404 });
         }
 
-        if (req.body.name || req.body.description) {
+        if (req.body.name) {
             const existingMovement = await movementDataMapper.isUnique(req.body, req.params.id);
             if (existingMovement) {
                 let field;
                 if (existingMovement.name === req.body.name) {
                     field = 'name';
-                } else {
-                    field = 'description';
                 }
                 throw new ApiError(`Other movement already exists with this ${field}`, {
                     statusCode: 400,
@@ -108,7 +104,7 @@ module.exports = {
     async delete(req, res) {
         const movement = await movementDataMapper.findByPk(req.params.id);
         if (!movement) {
-            throw new ApiError('This post does not exists', { statusCode: 404 });
+            throw new ApiError('This movement does not exists', { statusCode: 404 });
         }
 
         await movementDataMapper.delete(req.params.id);

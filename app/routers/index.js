@@ -6,7 +6,6 @@ const { errorHandler } = require('../helpers/errorHandler');
 
 const router = express.Router();
 
-// On préfixe les routers
 router.use('/api', apiRouter);
 router.use('/', websiteRouter);
 

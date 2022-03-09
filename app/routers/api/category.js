@@ -4,13 +4,12 @@ const validate = require('../../validation/validator');
 const createSchema = require('../../validation/schemas/categoryCreateSchema');
 const updateSchema = require('../../validation/schemas/categoryUpdateSchema');
 
-const { categoryController: controller } = require('../../controllers/api');
+const { wodController: controller } = require('../../controllers/api');
 const controllerHandler = require('../../helpers/controllerHandler');
 
 const router = express.Router();
 
-router
-    .route('/')
+router.route('/')
     /**
      * GET /api/categories
      * @summary Get all categories
@@ -29,8 +28,8 @@ router
      */
     .post(validate('body', createSchema), controllerHandler(controller.create));
 
-router
-    .route('/:id(\\d+)')
+router.route('/:id(\\d+)')
+
     /**
      * GET /api/categories/{id}
      * @summary Get one category
