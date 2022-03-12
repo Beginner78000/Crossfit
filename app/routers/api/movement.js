@@ -19,7 +19,7 @@ router
      */
     .get(controllerHandler(controller.getAll))
     /**
-     * Movement /api/movements
+     * POST /api/movements
      * @summary Create a movement
      * @tags Movement
      * @param {InputMovement} request.body.required - movement info
@@ -61,18 +61,5 @@ router
      * @return {ApiError} 404 - Movement not found - application/json
      */
     .delete(controllerHandler(controller.delete));
-
-router
-    .route('/category/:id(\\d+)')
-    /**
-     * GET /api/movements/category/{id}
-     * @summary Get movements by category
-     * @tags Movement
-     * @param {number} id.path.required - category identifier
-     * @return {[Movement]} 200 - success response - application/json
-     * @return {ApiError} 400 - Bad request response - application/json
-     * @return {ApiError} 404 - Category not found - application/json
-     */
-    .get(controllerHandler(controller.getByCategoryId));
 
 module.exports = router;

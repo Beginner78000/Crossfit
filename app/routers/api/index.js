@@ -9,8 +9,11 @@ const { ApiError } = require('../../helpers/errorHandler');
 
 const router = express.Router();
 
-// Route par défaut de l'API, ici on la configure pour toutes les méthodes
-// afin de donner l'information en cas d'oubli de spéfication de la route par l'utilisateur
+router.use((_, res, next) => {
+    res.type('json');
+    next();
+});
+
 router.all('/', apiController.home);
 
 // On préfixe les routers de l'API

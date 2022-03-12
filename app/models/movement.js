@@ -107,27 +107,4 @@ module.exports = {
         // On cast le truthy/falsy en vrai booléen
         return !!result.rowCount;
     },
-
-    /**
-     * Récupère par l'id de category
-     * @param {number} categoryId - L'id de la Category
-     * @returns {Movement[]} - La liste des Movements marqué avec cette Category dans la BDD
-     */
-    async findByCategoryId(categoryId) {
-        // On veut d'abord vérifié que la category demandé existe
-        const category = await categoryDataMapper.findByPk(categoryId);
-        if (!category) {
-            // Elle n'existe pas, je veux le signaler au controller
-            // mais un return ne semble pas adapté.
-            // Je vais donc "lancer" une exception que mon controller va pouvoir
-            // "attraper" et traiter
-            throw new ApiError('Category not found', { statusCode: 404 });
-        }
-
-        const result = await client.query(
-            'SELECT * FROM movement_with_category WHERE category_id = $1',
-            [categoryId]
-        );
-        return result.rows;
-    },
 };

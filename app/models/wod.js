@@ -55,10 +55,17 @@ module.exports = {
         const savedTraining = await client.query(
             `
         INSERT INTO training
-        (title, mobility, warm_up, skills, workout) VALUES
-        ($1, $2, $3, $4, $5) RETURNING *
+        (title, mobility, warm_up, skills, workout, category_id) VALUES
+        ($1, $2, $3, $4, $5, $6) RETURNING *
       `,
-            [training.title, training.mobility, training.warm_up, training.skills, training.workout]
+            [
+                training.title,
+                training.mobility,
+                training.warm_up,
+                training.skills,
+                training.workout,
+                training.category_id,
+            ]
         );
 
         return savedTraining.rows[0];

@@ -40,15 +40,19 @@ module.exports = {
      */
     async create(req, res) {
         const category = await categoryDataMapper.findByPk(req.params.id);
+
         if (category) {
             let field;
             if (category.label === req.body.label) {
                 field = 'label';
             }
-            throw new ApiError(`Category already exists with this ${field}`, { statusCode: 400 });
+            throw new ApiError(`Category already exists with this ${field}`, {
+                statusCode: 400,
+            });
         }
 
         const savedCategory = await categoryDataMapper.insert(req.body);
+
         return res.json(savedCategory);
     },
 

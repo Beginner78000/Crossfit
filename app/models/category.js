@@ -45,8 +45,8 @@ module.exports = {
     async insert(category) {
         const savedCategory = await client.query(
             `
-                INSERT INTO category.label 
-                VALUES($1) 
+                INSERT INTO category
+                (label) VALUES($1) 
                 RETURNING *
             `,
             [category.label]

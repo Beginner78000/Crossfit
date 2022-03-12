@@ -19,7 +19,7 @@ router
      */
     .get(controllerHandler(controller.getAll))
     /**
-     * WOD /api/wod
+     * POST /api/wod
      * @summary Create a training
      * @tags WOD
      * @param {InputWod} request.body.required - Training info
@@ -53,7 +53,7 @@ router
     .patch(validate('body', updateSchema), controllerHandler(controller.update))
     /**
      * DELETE /api/wod/{id}
-     * @summary Delete one wod
+     * @summary Delete one training
      * @tags WOD
      * @param {number} id.path.required - wod identifier
      * @return {WOD} 200 - success response - application/json
