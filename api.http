@@ -1,0 +1,22 @@
+############################################################################
+# Fichier de test des routes HTTP de l'API
+# Nécessite l'extension REST Client pour VSCode
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+################################################################################
+@host = http://localhost:{{$dotenv PORT}}
+
+### GET /api/categories
+GET {{host}}/api/categories
+
+
+### GET /api/categories/1
+GET {{host}}/api/categories/1
+
+
+### POST /api/categories
+POST {{host}}/api/categories
+Content-Type: application/json
+
+{
+    "label": "Nutrition2"
+}

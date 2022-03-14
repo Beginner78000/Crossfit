@@ -13,6 +13,7 @@ const WebsiteError = require('../errors/websiteError');
  * @param {object} res Express response object
  */
 const errorHandler = (err, res) => {
+    // console.log('errorHandler', err);
     let { message } = err;
     let statusCode = err.infos.statusCode;
 

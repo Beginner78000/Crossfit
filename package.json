@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest --verbose",
     "start": "node .",
     "dev": "DEBUG=app:server node ."
   },
@@ -19,6 +20,10 @@
     "express": "^4.17.3",
     "express-jsdoc-swagger": "^1.6.7",
     "joi": "^17.6.0",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "redis": "^4.0.4"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
