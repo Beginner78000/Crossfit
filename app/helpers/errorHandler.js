@@ -15,7 +15,7 @@ const WebsiteError = require('../errors/websiteError');
 const errorHandler = (err, res) => {
     // console.log('errorHandler', err);
     let { message } = err;
-    let statusCode = err.infos.statusCode;
+    let statusCode = err.infos?.statusCode;
 
     if (!statusCode || Number.isNaN(Number(statusCode))) {
         statusCode = 500;

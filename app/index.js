@@ -7,8 +7,8 @@ const router = require('./routers');
 const app = express();
 require('./helpers/apiDocs')(app);
 
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 // On active le middleware pour parser le payload JSON
 app.use(express.json());

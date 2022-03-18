@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --watchAll --verbose",
     "start": "node .",
     "dev": "DEBUG=app:server node ."
   },
@@ -21,9 +21,11 @@
     "express-jsdoc-swagger": "^1.6.7",
     "joi": "^17.6.0",
     "pg": "^8.7.3",
+    "pug": "^3.0.2",
     "redis": "^4.0.4"
   },
   "devDependencies": {
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
   }
 }
