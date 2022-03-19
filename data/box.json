@@ -1,6 +1,7 @@
 [
     {
         "name": "WildBear",
+        "type": "BOX",
         "email": "hello@wildbearcrossfit.com",
         "phone_number": "+33 2.56.63.17.34",
         "website": "https://wildbearcrossfit.com/",
@@ -9,6 +10,7 @@
     },
     {
         "name": "Andarta",
+        "type": "BOX",
         "email": "contact@crossfit-andarta.bzh",
         "phone_number": "+33 6.70.83.62.82",
         "website": "https://www.crossfit-andarta.bzh/",
@@ -17,6 +19,7 @@
     },
     {
         "name": "Darioritum",
+        "type": "BOX",
         "email": "",
         "phone_number": "+33 7.70.12.81.61",
         "website": "https://www.darioritum-crossfit-danse.fr/",
@@ -25,6 +28,7 @@
     },
     {
         "name": "CrossFit Orgeval",
+        "type": "BOX",
         "email": "contact@crossfitorgeval.fr",
         "phone_number": "+33 1.85.00.80.34",
         "website": "https://crossfitorgeval.fr/",
@@ -33,6 +37,7 @@
     },
     {
         "name": "CrossFit Factory",
+        "type": "BOX",
         "email": "crossfitfactory92@gmail.com",
         "phone_number": "+33 1.47.31.62.42",
         "website": "http://www.crossfitfactory.fr/",
@@ -41,6 +46,7 @@
     },
     {
         "name": "Red Legion",
+        "type": "BOX",
         "email": "cfredlegion@gmail.com",
         "phone_number": "+33 6.66.85.54.01",
         "website": "https://redlegion.fr/",

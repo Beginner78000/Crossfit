@@ -1,126 +1,126 @@
 [
     {
         "name": "Snatch",
-        "type": "Snatch",
+        "type": "Haltérophilie",
         "description": "Le snatch, ou arraché, est un mouvement d’haltérophilie qui consiste à amener la barre au-dessus de la tête en partant du sol en un seul mouvement.",
         "visual_name": "snatch.jpg",
         "movement_url": "https://youtu.be/VFfEh9AqGF4"
     },
     {
         "name": "Clean",
-        "type": "Clean",
+        "type": "Haltérophilie",
         "description": "Le Clean, ou épaulé, est un des deux mouvements principaux en haltérophilie olympique et nécessite force, puissance, vitesse, souplesse et coordination. Tous ces composants doivent fonctionner ensemble pour réussir le Clean.",
         "visual_name": "clean.jpg",
         "movement_url": "https://youtu.be/mIMfrSClasU"
     },
     {
         "name": "Jerk",
-        "type": "Jerk",
+        "type": "Haltérophilie",
         "description": "Comme pour les autres mouvements en haltérophilie, le push jerk consiste à passer votre corps sous la barre. Vous utiliserez la même stabilité de la ligne médiane, la même trajectoire de barre et le même élan de dip que le push press, mais vous ajouterez un deuxième pliage de genoux pour soulever la barre.",
         "visual_name": "jerk.jpg",
         "movement_url": "https://youtu.be/R7zDK5TelNg"
     },
     {
         "name": "Handstand Push up (HSPU)",
-        "type": "",
+        "type": "Gymnastique",
         "description": "Exercice de gymnastique originaire du Crossfit, le HSPU ou Handstand Push Up cible les muscles du haut du corps dont les épaules et les triceps. Le HSPU est une variante de pompes, il est possible de les effectuer en strict ou en kipping.",
         "visual_name": "hspu.jpg",
         "movement_url": "https://youtu.be/0wDEO6shVjc"
     },
     {
         "name": "Handstand Walk (HSW)",
-        "type": "",
+        "type": "Gymnastique",
         "description": "Lorsque vous marchez en poirier, vous ne pouvez jamais avoir les deux mains uniformément plantées sur le sol. Au lieu de cela, votre poids se déplace constamment sur un bras ou l autre au fur et à mesure que vous avancez.",
         "visual_name": "hsw.jpg",
         "movement_url": "https://youtu.be/N4xgzYPTt4A"
     },
     {
         "name": "Rope Climb",
-        "type": "",
+        "type": "Gymnastique",
         "description": "Le grimper de corde est une épreuve sportive consistant en la montée - chronométrée, ou non - sur une corde suspendue par la seule force des mains. Le sportif peut être autorisé à se servir des pieds en appui pour consolider sa progression en montée.",
         "visual_name": "rope.jpg",
         "movement_url": "https://youtu.be/Pa4QUC9AvuA"
     },
     {
         "name": "Power Snatch",
-        "type": "Snatch",
+        "type": "Haltérophilie",
 	    "description": "Le power snatch est simplement un snatch sans un squat complet pour le recevoir. Remarques: Les entraîneurs et les athlètes ont parfois des définitions différentes de ce qui constitue une position de réception de « puissance ». Le plus souvent, tout ce qui est reçu avec les cuisses horizontales ou plus hautes (ne pas casser la parallèle) est considéré comme un power lift.",
 	    "visual_name": "power-snatch.jpg",
 	    "movement_url": "https://www.youtube.com/watch?v=TL8SMp7RdXQ"
     },
     {
         "name": "Power Clean",
-        "type": "Clean",
+        "type": "Haltérophilie",
         "description": "Le Power Clean est l’une des meilleures méthodes pour gagner en force et en masse musculaire dans l’univers du Crossfit et d’autres programmes de salle de sport. Il s’agit d’un exercice de puissance qui consiste à soulever une barreavec des poids, du sol vers l’avant des épaules, avec l’aide de tout le corps.",
         "visual_name": "power-clean.jpg",
         "movement_url": "https://youtu.be/Io4QsuRnhZg"
     },
     {
         "name": "Clean & Jerk",
-        "type": "Jerk",
+        "type": "Haltérophilie",
         "description": "Le Clean & Jerk est un composite de deux mouvements en haltérophilie, le plus souvent exécutés avec une barre : le Clean (épaulé) et le Jerk (jeté). Pendant le Clean, la personne déplace la barre du sol vers une position en rack sur les deltoïdes, sans reposer complètement sur les clavicules. Pendant le Jerk, la personne soulève la barre pour avoir une position stationnaire au-dessus de la tête, en terminant avec les bras et les jambes tendus, et les pieds dans le même plan que le torse et la barre.",
         "visual_name": "clean-jerk.jpg",
         "movement_url": "https://youtu.be/Ygi53rJc0PA"
     },
     {
         "name": "Toes to bar",
-        "type": "",
+        "type": "Gymnastique",
         "description": "Le Toes-to-bar, est lorsque vous êtes dans votre partie creuse du kip que vous devez tirer vos genoux vers votre poitrine et terminer par le coup de pied qui les amène à la barre. Dès que vos pieds touchent la barre, TIREZ-les vers le bas aussi vite que possible pour vous remettre chargé dans votre Superman pour votre prochaine répétition.",
         "visual_name": "toes-to-bar.jpg",
         "movement_url": "https://youtu.be/eAACJyoAmww"
     },
     {
         "name": "Kipping Pull-up",
-        "type": "",
+        "type": "Gymnastique",
         "description": "Kipping est une façon de balancer votre corps pour prendre un élan, permettant de créer un 'swing puissant', pour pouvoir ensuite effectuer le pull up. En effet, le swing va vous aider pour pousser votre menton vers le haut et au-dessus de la barre",
         "visual_name": "kipping-pullup.jpg",
         "movement_url": "https://youtu.be/EeSneM87aoE"
     },
     {
         "name": "Deadlift",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Le soulevé de terre est un exercice polyarticulaire de force et de musculation. Il consiste à saisir la barre complètement et en toute sécurité dans un surgrip ou une prise alternative sous/sur la largeur de la taille. Regardant droit devant, la colonne vertébrale dans une position plate puissante (pas penchée ni arrondie), se concentrer, réguler la respiration, inspirer profondément et tirer de manière régulière la barre vers une position militaire complète. Bien garder la barre près du corps et expirer en exerçant toute la force. Faire une pause pendant une seconde de contraction et plier lentement les genoux et le bas du dos durant le retour à la position de départ et puis répéter.",
         "visual_name": "deadlift.jpg",
         "movement_url": "https://youtu.be/gNdZuaYZz7E"
     },
     {
         "name": "Thruster",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Le thruster est un exercice composé et complexe qui combine un clean, un front squat et un push-press(poussée épaule avec impulsion jambes).",
         "visual_name": "thruster.jpg",
         "movement_url": "https://youtu.be/N0dtRABhraY"
     },
     {
         "name": "Double Under (DU)",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Un double under est un exercice populaire effectué avec une corde à sauter, dans lequel la corde fait deux passages par saut au lieu de un seul. Il est nettement plus efficace que le simple under (simple passage de corde) dans la mesure où il permet une plus grande capacité de travail.",
         "visual_name": "du.jpg",
         "movement_url": "https://youtu.be/BErpXNoC7AI"
     },
     {
         "name": "Box Jump",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Le box jump est un exercice qui utilise un régime de contraction pliométrique, ça signifie, une phase avec un étirement excentrique immédiatement suivie de la phase concentrique. Il permet une amélioration de sa vitesse, de sa force, de son explosivité mais aussi la coordination entre les fibres musculaires",
         "visual_name": "box-jump.jpg",
         "movement_url": "https://youtu.be/hLFw24pSiog"
     },
     {
         "name": "Lunges (fentes)",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Les fentes sont un exercice idéal pour travailler ses fessiers et dessiner ses jambes. Elles sollicitent toute de la cuisse, ainsi que la partie arrière de la jambe. On appel une fente, lorque la jambe avant à le genou plié et le pied à plat sur le sol tandis que la jambe positionnée derrière est plié en sens inverse avec le genou qui frolle le sol.",
         "visual_name": "lunges.jpg",
         "movement_url": "https://youtu.be/ReYOTT2pO7I"
     },
     {
         "name": "Pistol",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Le pistol squats désigne des squats effectués sur une jambe. la pratique et la maîtrise du squat pistol peuvent favoriser le développement des jambes, l’équilibre, la coordination…",
         "visual_name": "pistol.jpg",
         "movement_url": "https://youtu.be/Mwjk7bgFUbA"
     },
     {
         "name": "Wall-Ball",
-        "type": "",
+        "type": "Autres mouvements",
         "description": "Le mouvement consistant à prendre une balle lestée, à effectuer un squat puis à projeter la balle vers le haut, vers une cible sur le mur. Il permet de faire travailler la force et le cardio.",
         "visual_name": "wall-ball.jpg",
         "movement_url": "https://youtu.be/bldADcMZsWU"

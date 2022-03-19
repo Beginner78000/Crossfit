@@ -62,13 +62,13 @@ const boxes = require('./box');
     // dont on va stocker la promesse d'exécution dans un tableau
     const movementQueries = [];
     movements.forEach((movement) => {
-        debug('Processing movement:', movement.title);
+        debug('Processing movement:', movement.name);
 
-        const movementCategory = categoryRows.find((category) => category.label === movement.category);
+        const movementCategory = categoryRows.find((category) => category.label === movement.type);
 
         // Seconde syntaxe pour les requêtes : la requête 'objet'
         const insertMovementQuery = {
-            
+
             text: `
                 INSERT INTO "movement"
                 ("name", "type", "description", "visual_name", "movement_url", "category_id")
@@ -99,17 +99,18 @@ const boxes = require('./box');
     wods.forEach((wod) => {
         debug('Processing wod:', wod.title);
 
-        const wodCategory = categoryRows.find((category) => category.label === wod.category);
+        const wodCategory = categoryRows.find((category) => category.label === wod.type);
 
         const insertWodQuery = {
-            
+
             text: `
                 INSERT INTO "training"
-                ("title", "mobility", "warm_up", "skills", "workout", "category_id")
+                ("type", "title", "mobility", "warm_up", "skills", "workout", "category_id")
                 VALUES
                 ($1, $2, $3, $4, $5, $6)
             `,
             values: [
+                wod.type,
                 wod.title,
                 wod.mobility,
                 wod.warm_up,
@@ -129,18 +130,19 @@ const boxes = require('./box');
     boxes.forEach((box) => {
         debug('Processing box:', box.name);
 
-        const boxCategory = categoryRows.find((category) => category.label === box.category);
+        const boxCategory = categoryRows.find((category) => category.label === box.type);
 
         const insertBoxQuery = {
-            
+
             text: `
                 INSERT INTO "box"
-                ("name", "email", "phone_number", "website", "zip_code", "city", "category_id")
+                ("name", "type", "email", "phone_number", "website", "zip_code", "city", "category_id")
                 VALUES
                 ($1, $2, $3, $4, $5, $6)
             `,
             values: [
                 box.name,
+                box.type,
                 box.email,
                 box.phone_number,
                 box.website,
