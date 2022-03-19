@@ -1,6 +1,16 @@
 const debug = require('debug')('CacheModule');
-const { createClient } = require('redis');
-const db = createClient();
+// const { createClient } = require('redis');
+// const db = createClient();
+
+if (process.env.REDISTOGO_URL) {
+    // TODO: redistogo connection
+    const rtg   = require("url").url.parse(process.env.REDISTOGO_URL);
+    const redis = require("redis").createClient(rtg.port, rtg.hostname);
+
+    redis.auth(rtg.auth.split(":")[1]);
+} 
+
+const redis = require("redis").createClient();
 
 
 const TTL = 60 * 5;
@@ -10,7 +20,7 @@ const keys = [];
 
 const cache = {
     async connect() {
-        await db.connect();
+        await redis.connect();
     },
 
     async cache(req, res, next) {
