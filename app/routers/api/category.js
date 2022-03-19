@@ -6,7 +6,7 @@ const updateSchema = require('../../validation/schemas/categoryUpdateSchema');
 
 const { categoryController: controller } = require('../../controllers/api');
 const controllerHandler = require('../../helpers/controllerHandler');
-const { cache, flush } = require('../../helpers/cache');
+// const { cache, flush } = require('../../helpers/cache');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.route('/')
      * @tags Category
      * @return {[Category]} 200 - success response - application/json
      */
-    .get(cache, controllerHandler(controller.getAll))
+    .get(controllerHandler(controller.getAll))
     /**
      * POST /api/categories
      * @summary Create a category
@@ -27,7 +27,7 @@ router.route('/')
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Category not found - application/json
      */
-    .post(validate('body', createSchema), flush, controllerHandler(controller.create));
+    .post(validate('body', createSchema), controllerHandler(controller.create));
 
 router.route('/:id(\\d+)')
 
@@ -40,7 +40,7 @@ router.route('/:id(\\d+)')
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Category not found - application/json
      */
-    .get(cache, controllerHandler(controller.getOne))
+    .get(controllerHandler(controller.getOne))
     /**
      * PATCH /api/categories/{id}
      * @summary Update one category
@@ -51,7 +51,7 @@ router.route('/:id(\\d+)')
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Category not found - application/json
      */
-    .patch(validate('body', updateSchema), flush, controllerHandler(controller.update))
+    .patch(validate('body', updateSchema), controllerHandler(controller.update))
     /**
      * DELETE /api/categories/{id}
      * @summary Delete one category
@@ -61,6 +61,6 @@ router.route('/:id(\\d+)')
      * @return {ApiError} 400 - Bad request response - application/json
      * @return {ApiError} 404 - Category not found - application/json
      */
-    .delete(flush, controllerHandler(controller.delete));
+    .delete(controllerHandler(controller.delete));
 
 module.exports = router;
