@@ -1,6 +1,3 @@
-// Cela marche même si le script n'est pas à la racine avec le .env
-// car ce script est lancé avec npm run import
-// Donc comme s'il était à la racine
 require('dotenv').config();
 
 const debug = require('debug')('import:log');
@@ -8,8 +5,10 @@ const debug = require('debug')('import:log');
 const client = require('../app/config/db');
 
 // On récupère les données de base
-const categories = require('./categories.json');
-const posts = require('./posts.json');
+const categories = require('./category.json');
+const movements = require('./movement.json');
+const wods = require('./wod.json');
+const boxes = require('./box');
 
 // Pour pouvoir utiliser await je dois être dans une fonction  async et pas dans
 // le flux principal du programme.
@@ -20,8 +19,7 @@ const posts = require('./posts.json');
     /**
      * Il faut penser à vider les tables avant de réécrire les données
      * cela nous simplifiera la vie.
-     * On utilise TRUNCATE TABLE plutôt que DELETE FROM
-     * car c'est bien plus rapide
+     * On utilise TRUNCATE TABLE plutôt que DELETE FROM car c'est bien plus rapide
      * TRUNCATE TABLE ne vérifie par chaque enregistrement avant de le supprimer,
      * et en bonus on peut préciser plusieurs
      * table en même temps comme DROP TABLE.
@@ -29,7 +27,7 @@ const posts = require('./posts.json');
      * Donc ici l'ordre des tables n'est pas important
      * RESTART IDENTITY (optionnel) permet de reset de la numérotation des colonnes IDENTITY
      */
-    await client.query('TRUNCATE TABLE category, post RESTART IDENTITY');
+    await client.query('TRUNCATE TABLE category, movement, training, box RESTART IDENTITY');
 
     // On prépare un tableau qui permettra de référencer
     // l'ensemble de requêtes d'insertion des catégories
@@ -40,12 +38,12 @@ const posts = require('./posts.json');
         const query = client.query(
             `
                 INSERT INTO "category"
-                ("label", "route")
+                ("label")
                 VALUES
-                ($1, $2)
+                ($1)
                 RETURNING *;
             `,
-            [category.label, category.route],
+            [category.label],
         );
         debug('Contenu de query', query);
         categoryQueries.push(query);
@@ -60,56 +58,103 @@ const posts = require('./posts.json');
 
     debug('Contenu de categoryRows', categoryRows);
 
-    // Pour chaque post on genère une requête,
+    // Pour chaque movement on genère une requête,
     // dont on va stocker la promesse d'exécution dans un tableau
-    const postQueries = [];
-    posts.forEach((post) => {
-        debug('Processing post:', post.slug);
+    const movementQueries = [];
+    movements.forEach((movement) => {
+        debug('Processing movement:', movement.title);
 
-        const postCategory = categoryRows.find((category) => category.label === post.category);
+        const movementCategory = categoryRows.find((category) => category.label === movement.category);
 
         // Seconde syntaxe pour les requêtes : la requête 'objet'
-        const insertPostQuery = {
-            // ci dessous un exemple de INSERT avec une subquery
-            // Pour aller chercher une donnée qui nous manque
-            // text: `
-            //     INSERT INTO post
-            //     (slug, title, excerpt, content, category_id)
-            //     VALUES ($1, $2, $3, $4, (
-            //        SELECT id FROM category WHERE label = $5
-            //     ))
-            // `,
-            // values: [
-            //     post.slug,
-            //     post.title,
-            //     post.excerpt,
-            //     post.content,
-            //     post.category
-            // ]
+        const insertMovementQuery = {
+            
             text: `
-                INSERT INTO "post"
-                ("slug", "title", "excerpt", "content", "category_id")
+                INSERT INTO "movement"
+                ("name", "type", "description", "visual_name", "movement_url", "category_id")
                 VALUES
-                ($1, $2, $3, $4, $5)
+                ($1, $2, $3, $4, $5, $6)
             `,
             values: [
-                post.slug,
-                post.title,
-                post.excerpt,
-                post.content,
+                movement.name,
+                movement.type,
+                movement.description,
+                movement.visual_name,
+                movement.movement_url,
                 // On utilise notre objet de référence
                 // afin d'inséré le bon id de catégorie rattaché à l'article
-                postCategory.id,
+                movementCategory.id,
             ],
         };
 
-        const query = client.query(insertPostQuery);
-        postQueries.push(query);
+        const query = client.query(insertMovementQuery);
+        movementQueries.push(query);
     });
 
     // Un fois toutes les executions de requête créer
     // on les resolve toutes en même temps, et il ne faut qu'aucune ne soit en échec
-    await Promise.all(postQueries);
+    await Promise.all(movementQueries);
+
+    const wodQueries = [];
+    wods.forEach((wod) => {
+        debug('Processing wod:', wod.title);
+
+        const wodCategory = categoryRows.find((category) => category.label === wod.category);
+
+        const insertWodQuery = {
+            
+            text: `
+                INSERT INTO "training"
+                ("title", "mobility", "warm_up", "skills", "workout", "category_id")
+                VALUES
+                ($1, $2, $3, $4, $5, $6)
+            `,
+            values: [
+                wod.title,
+                wod.mobility,
+                wod.warm_up,
+                wod.skills,
+                wod.workout,
+                wodCategory.id,
+            ],
+        };
+
+        const query = client.query(insertWodQuery);
+        wodQueries.push(query);
+    });
+
+    await Promise.all(wodQueries);
+
+    const boxQueries = [];
+    boxes.forEach((box) => {
+        debug('Processing box:', box.name);
+
+        const boxCategory = categoryRows.find((category) => category.label === box.category);
+
+        const insertBoxQuery = {
+            
+            text: `
+                INSERT INTO "box"
+                ("name", "email", "phone_number", "website", "zip_code", "city", "category_id")
+                VALUES
+                ($1, $2, $3, $4, $5, $6)
+            `,
+            values: [
+                box.name,
+                box.email,
+                box.phone_number,
+                box.website,
+                box.zip_code,
+                box.city,
+                boxCategory.id,
+            ],
+        };
+
+        const query = client.query(insertBoxQuery);
+        boxQueries.push(query);
+    });
+
+    await Promise.all(boxQueries);
 
     debug('Done');
 })();

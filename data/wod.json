@@ -1,0 +1,23 @@
+[
+    {
+        "title": "WOD n°1",
+        "mobility": ["Back-roll", "prayer on roller", "T-hips opener full rotation", "squat opener"],
+        "warm_up": [[5, 45, 6, 4, 4], ["sets", "secondes easy ergo", "elbow rotation", "strict press", "broad jump"]],
+        "skills": [[5, 1, 1, 2, 3], ["sets", "power clean", "squat clean", "front squat", "push press (load progression)"]],
+        "workout": [[7, 5, 3, 3, 750], ["rounds", "push press", "front squat", "box jump", "m run"]]
+    },
+    {
+        "title": "WOD n°2",
+        "mobility": ["Back-roll", "calf-roll", "hamstring-roll", "rollover to V-sit", "Samson stretch", "PNF shoulder ext. rot."],
+        "warm_up": [[4,8,4,25], ["sets", "kong squat prisoners", "pike push-up", "simple unders"]],
+        "skills": [[4,1,15,2,8,5], ["sets", "minute", "double under", "minute", "double dumbbell deadlift", "shoulder to overhead (load progression)"]],
+        "workout": [[5,1,20,2,50,80,3,1,4,1], ["rounds", "minute", "double DB deadlift", "minute", "DU ou", "SU", "minute", "max reps double DB shoulder to OH", "minute", "rest"]]
+    },
+    {
+        "title": "WOD n°3",
+        "mobility": ["Updog to downdog", "squat opener", "bottom squat full rotation"],
+        "warm_up": [[5,5,5,5,5,5,5,5,5], ["mins", "deadlifts", "elbow rotation", "strict press", "goodmornings", "backsquats", "back elbow rotations", "front squat", "hang power clean"]],
+        "skills": [[3,10,10,10,10], ["sets", "hang power clean", "sit-ups", "step back lunges", "sit-ups"]],
+        "workout": [[1,18,3,7,5,3,2,16,30,20,10], ["Part", "mins", "rounds", "hang power clean", "puis", "Part", "mins max", "hang power cleans", "sit-ups", "step back lunges", "sit-ups"]]
+    }
+]

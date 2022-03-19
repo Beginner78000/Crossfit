@@ -1,0 +1,50 @@
+[
+    {
+        "name": "WildBear",
+        "email": "hello@wildbearcrossfit.com",
+        "phone_number": "+33 2.56.63.17.34",
+        "website": "https://wildbearcrossfit.com/",
+        "zip_code": "56000",
+        "city": "Vannes"
+    },
+    {
+        "name": "Andarta",
+        "email": "contact@crossfit-andarta.bzh",
+        "phone_number": "+33 6.70.83.62.82",
+        "website": "https://www.crossfit-andarta.bzh/",
+        "zip_code": "56400",
+        "city": "Auray"
+    },
+    {
+        "name": "Darioritum",
+        "email": "",
+        "phone_number": "+33 7.70.12.81.61",
+        "website": "https://www.darioritum-crossfit-danse.fr/",
+        "zip_code": "56000",
+        "city": "Vannes"
+    },
+    {
+        "name": "CrossFit Orgeval",
+        "email": "contact@crossfitorgeval.fr",
+        "phone_number": "+33 1.85.00.80.34",
+        "website": "https://crossfitorgeval.fr/",
+        "zip_code": "78630",
+        "city": "Orgeval"
+    },
+    {
+        "name": "CrossFit Factory",
+        "email": "crossfitfactory92@gmail.com",
+        "phone_number": "+33 1.47.31.62.42",
+        "website": "http://www.crossfitfactory.fr/",
+        "zip_code": "92800",
+        "city": "Puteaux"
+    },
+    {
+        "name": "Red Legion",
+        "email": "cfredlegion@gmail.com",
+        "phone_number": "+33 6.66.85.54.01",
+        "website": "https://redlegion.fr/",
+        "zip_code": "95280",
+        "city": "Jouy-le-Moutier"
+    }
+]
