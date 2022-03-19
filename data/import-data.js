@@ -107,7 +107,7 @@ const boxes = require('./box');
                 INSERT INTO "training"
                 ("type", "title", "mobility", "warm_up", "skills", "workout", "category_id")
                 VALUES
-                ($1, $2, $3, $4, $5, $6)
+                ($1, $2, $3, $4, $5, $6, $7)
             `,
             values: [
                 wod.type,
@@ -138,7 +138,7 @@ const boxes = require('./box');
                 INSERT INTO "box"
                 ("name", "type", "email", "phone_number", "website", "zip_code", "city", "category_id")
                 VALUES
-                ($1, $2, $3, $4, $5, $6)
+                ($1, $2, $3, $4, $5, $6, $7, $8)
             `,
             values: [
                 box.name,
