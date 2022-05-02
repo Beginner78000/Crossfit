@@ -32,7 +32,7 @@ module.exports = {
     },
 
     /**
-     * Récupère par sont id
+     * Récupère par son id
      * @param {number} movementId - L'id du mouvement souhaité
      * @returns {(Movement|undefined)} - Le Mouvement souhaité ou undefined si aucun Mouvement à cet id
      */
